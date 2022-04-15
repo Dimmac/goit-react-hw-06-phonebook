@@ -9,7 +9,6 @@ import {
 const ContactListItem = ({ data, onDeleteContact }) => {
   const { number, name } = data;
 
-  /* console.log(data); */
   return (
     <ListItemStyle>
       <NameContactStyle>{name}:</NameContactStyle>

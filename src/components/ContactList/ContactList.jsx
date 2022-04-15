@@ -2,15 +2,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteItems } from '../../redux/items/items-actions';
 import { getVisibleItems } from '../../redux/items/items-selectors';
-
 import ContactListItem from '../ContactListItem/ContactListItem';
-
 import { ListStyle } from './ContactList.styled';
 
 const ContactList = () => {
   const visibleContact = useSelector(getVisibleItems);
   const dispatch = useDispatch();
-
   const onDeleteItems = id => dispatch(deleteItems(id));
 
   return (

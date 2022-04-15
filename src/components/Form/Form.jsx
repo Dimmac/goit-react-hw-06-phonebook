@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-
 import {
   FormPhoneBook,
   LabelPhoneBook,
@@ -19,7 +18,6 @@ export default function ContactForm() {
 
   const handleNameChange = event => {
     event.preventDefault();
-
     const { name, value } = event.currentTarget;
 
     switch (name) {
@@ -36,7 +34,6 @@ export default function ContactForm() {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    //console.log(name, number);
 
     dispatch(addItems(name, number));
     reset();

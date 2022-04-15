@@ -1,10 +1,6 @@
-//import { useState } from 'react';
-//import { nanoid } from 'nanoid';
-
 import ContactForm from './Form/Form';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
-
 import { Container } from './App.global.styled';
 import { TitlePhoneBook, TitleContacts, Section } from './App.styled';
 

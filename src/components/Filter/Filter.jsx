@@ -1,11 +1,9 @@
 import { nanoid } from 'nanoid';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/items/items-selectors';
 import { changeFilter } from '../../redux/items/items-actions';
-
 import { LabelFilterStyle, InputFilterStyle } from './Filter.styled';
-
 const generateId = nanoid();
 
 const Filter = () => {
@@ -29,7 +27,7 @@ const Filter = () => {
 
 export default Filter;
 
-/* Filter.propTypes = {
+Filter.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}; */
+};
