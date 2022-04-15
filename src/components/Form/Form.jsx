@@ -1,39 +1,52 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { FormPhoneBook, LabelPhoneBook, InputPhoneBook, ButtonPhoneBook } from './Form.styled';
+import { useDispatch } from 'react-redux';
 
-export default function ContactForm({ formSubmit }) {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+import {
+  FormPhoneBook,
+  LabelPhoneBook,
+  InputPhoneBook,
+  ButtonPhoneBook,
+} from './Form.styled';
+import { addItems } from '../../redux/items/items-actions';
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
 
-  const handleNameChange = (event) => {
+  const handleNameChange = event => {
     event.preventDefault();
 
     const { name, value } = event.currentTarget;
 
     switch (name) {
-      case "name":
+      case 'name':
         setName(value);
         break;
-      case "number":
+      case 'number':
         setNumber(value);
         break;
       default:
         console.log(`Field type name - ${name} is not processed`);
     }
   };
-  const handleSubmit = (evt) => {
+
+  const handleSubmit = evt => {
     evt.preventDefault();
-    formSubmit({ name, number });
+    //console.log(name, number);
+
+    dispatch(addItems(name, number));
     reset();
   };
+
   const reset = () => {
-    setName("");
-    setNumber("");
+    setName('');
+    setNumber('');
   };
+
   return (
     <FormPhoneBook onSubmit={handleSubmit}>
       <LabelPhoneBook htmlFor={nameInputId}>
