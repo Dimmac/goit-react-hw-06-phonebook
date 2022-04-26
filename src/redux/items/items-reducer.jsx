@@ -2,7 +2,6 @@ import { createReducer, combineReducers } from '@reduxjs/toolkit';
 
 import { addItems, deleteItems, changeFilter } from './items-actions';
 
-////////Reducers///////////////////
 const itemsReducer = createReducer([], {
   [addItems]: (state, { payload }) =>
     state.find(({ name }) => name.toLowerCase() === payload.name.toLowerCase())
@@ -11,7 +10,6 @@ const itemsReducer = createReducer([], {
 
   [deleteItems]: (state, { payload }) =>
     state.filter(({ id }) => {
-      /* console.log(payload); */
       return id !== payload;
     }),
 });

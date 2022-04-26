@@ -8,11 +8,9 @@ export const itemsSlice = createSlice({
       state.push(action.payload);
     },
     remove(state, action) {
-      return state.filter(item => item.id !== action.payload); //Немутуєм стейт через filter, тому return треба
+      return state.filter(item => item.id !== action.payload);
     },
   },
 });
-
-//console.log(itemsSlice);
 
 export const { add, remove } = itemsSlice.actions;
